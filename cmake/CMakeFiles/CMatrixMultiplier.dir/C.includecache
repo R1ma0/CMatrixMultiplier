@@ -11,6 +11,8 @@ stdio.h
 -
 stdlib.h
 -
+time.h
+-
 mult.h
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
 matrix.h
