@@ -1,0 +1,5 @@
+/mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/cmake/CMakeFiles/rebuild_cache.dir
+/mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/cmake/CMakeFiles/edit_cache.dir
+/mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/cmake/CMakeFiles/CMatrixMultiplier.dir
+/mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/cmake/CMakeFiles/matrix.dir
+/mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/cmake/CMakeFiles/mult.dir
