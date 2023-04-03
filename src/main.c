@@ -43,8 +43,6 @@ int main(int argc, char **argv)
 	int maxMatrixValue = 10;
 	matIntFillRandom(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
 	matIntFillRandom(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
-	//matIntFillImba(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
-	//matIntFillImba2(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
 
 	// DISPLAYING THE SOUCE MATRICES
 	//printf("Matrix A:\n");
