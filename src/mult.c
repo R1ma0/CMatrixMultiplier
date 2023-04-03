@@ -56,3 +56,25 @@ void multMultiply3IntMatrices(int *nowrow, int **matA, int **matB, int **matC, i
 		}
 	}
 }
+
+void multMultiply4IntMatrices(int *nowcolumn, int *nowrow, int **matA, int **matB, int **matC, int aRows, int aCols, int bRows, int bCols)
+{
+	for (int r = 0; r < aRows; r++)
+	{
+		for (int c = 0; c < bCols; c++)
+		{
+			matC[r][c] = 0;
+			// aCols == bRows
+			for (int i = 0; i < aCols; i++) //Проходим по строке в матрице-А
+			{
+				nowrow[i] = matA[r][i];
+				nowcolumn[i] = matB[i][c];
+
+			}
+			for (int i = 0; i < aCols; i++)
+			{
+				matC[r][c] += nowrow[i] * nowcolumn[i];
+			}
+		}
+	}
+}

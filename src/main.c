@@ -43,6 +43,8 @@ int main(int argc, char **argv)
 	int maxMatrixValue = 10;
 	matIntFillRandom(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
 	matIntFillRandom(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
+	//matIntFillImba(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
+	//matIntFillImba2(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
 
 	// DISPLAYING THE SOUCE MATRICES
 	//printf("Matrix A:\n");
@@ -55,6 +57,7 @@ int main(int argc, char **argv)
 	multMultiplyIntMatrices(matA, matB, matC, matARows, matACols, matBRows, matBCols);
 	clock_t end = clock();
 	printf("Code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
+	//matIntDisplay(matC, matARows, matBRows);
 
     int *nowcolumn = (int *)calloc(matBRows, sizeof(int));
     begin = clock();
@@ -62,6 +65,7 @@ int main(int argc, char **argv)
     end = clock();
     free(nowcolumn);
 	printf("Second variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
+    //matIntDisplay(matC, matARows, matBRows);
 
 	int *nowrow = (int *)calloc(matACols, sizeof(int));
 	begin = clock();
@@ -69,6 +73,19 @@ int main(int argc, char **argv)
     end = clock();
     free(nowrow);
 	printf("Third variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
+	//matIntDisplay(matC, matARows, matBRows);
+
+	nowcolumn = (int *)calloc(matBRows, sizeof(int));
+	nowrow = (int *)calloc(matACols, sizeof(int));
+	begin = clock();
+	multMultiply3IntMatrices(nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
+    end = clock();
+    free(nowrow);
+    free(nowcolumn);
+	printf("Fourth variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
+	//matIntDisplay(matC, matARows, matBRows);
+
+
 	//printf("Matrix C:\n");
 	//matIntDisplay(matC, matARows, matBCols);
 
