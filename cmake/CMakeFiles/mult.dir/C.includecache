@@ -11,6 +11,10 @@ mult.h
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
 malloc.h
 -
+stdio.h
+-
+time.h
+-
 
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
 
