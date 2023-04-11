@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 	nowcolumn = (int *)calloc(matBRows, sizeof(int));
 	nowrow = (int *)calloc(matACols, sizeof(int));
 	begin = clock();
-	multMultiply3IntMatrices(nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
+	multMultiply4IntMatrices(nowcolumn,nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     end = clock();
     free(nowrow);
     free(nowcolumn);
