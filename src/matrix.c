@@ -4,18 +4,18 @@
 #include <time.h>
 #include "matrix.h"
 
-int **matIntAllocateMemory(int rows, int cols)
+double **matDoubleAllocateMemory(int rows, int cols)
 {
-	int **mat = (int **)calloc(rows, sizeof(int *));
+	double **mat = (double **)calloc(rows, sizeof(double *));
 	for (int r = 0; r < rows; r++)
 	{
-		mat[r] = (int *)calloc(cols, sizeof(int *));
+		mat[r] = (double *)calloc(cols, sizeof(double *));
 	}
 
 	return mat;
 }
 
-void matIntFreeMemory(int **matrix, int rows)
+void matDoubleFreeMemory(double **matrix, int rows)
 {
 	for (int r = 0; r < rows; r++)
 	{
@@ -24,7 +24,7 @@ void matIntFreeMemory(int **matrix, int rows)
 	free(matrix);
 }
 
-void matIntFillRandom(int **matrix, int rows, int cols, int min, int max)
+void matDoubleFillRandom(double **matrix, int rows, int cols, int min, int max)
 {
 	srand(time(NULL));
 
@@ -32,18 +32,18 @@ void matIntFillRandom(int **matrix, int rows, int cols, int min, int max)
 	{
 		for (int c = 0; c < cols; c++)
 		{
-			matrix[r][c] = min + rand() % max;
+			matrix[r][c] = min + (max - min) * (rand() % max) / max;
 		}
 	}
 }
 
-void matIntDisplay(int **matrix, int rows, int cols)
+void matDoubleDisplay(double **matrix, int rows, int cols)
 {
 	for (int r = 0; r < rows; r++)
 	{
 		for (int c = 0; c < cols; c++)
 		{
-			printf("%5d", matrix[r][c]);
+			printf("%5.2f", matrix[r][c]);
 		}
 		printf("\n");
 	}

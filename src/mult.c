@@ -1,13 +1,13 @@
 #include "mult.h"
 #include <malloc.h>
 
-void multMultiplyIntMatrices(int **matA, int **matB, int **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiplyIntMatrices(double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
 	for (int r = 0; r < aRows; r++)
 	{
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0;
+			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < aCols; i++)
 			{
@@ -17,14 +17,14 @@ void multMultiplyIntMatrices(int **matA, int **matB, int **matC, int aRows, int 
 	}
 }
 
-void multMultiply2IntMatrices(int *nowcolumn, int **matA, int **matB, int **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiply2IntMatrices(double *nowcolumn, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
 
 	for (int r = 0; r < aRows; r++)
 	{
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0;
+			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < bRows; i++) //Проходим по столбцу в матрице-Б
 			{
@@ -38,7 +38,7 @@ void multMultiply2IntMatrices(int *nowcolumn, int **matA, int **matB, int **matC
 	}
 }
 
-void multMultiply3IntMatrices(int *nowrow, int **matA, int **matB, int **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiply3IntMatrices(double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
 	for (int r = 0; r < aRows; r++)
 	{
@@ -49,7 +49,7 @@ void multMultiply3IntMatrices(int *nowrow, int **matA, int **matB, int **matC, i
 		
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0;
+			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < aCols; i++)
 			{
@@ -59,7 +59,7 @@ void multMultiply3IntMatrices(int *nowrow, int **matA, int **matB, int **matC, i
 	}
 }
 
-void multMultiply4IntMatrices(int *nowcolumn, int *nowrow, int **matA, int **matB, int **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiply4IntMatrices(double *nowcolumn, double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
 	for (int r = 0; r < aRows; r++)
 	{
@@ -70,7 +70,7 @@ void multMultiply4IntMatrices(int *nowcolumn, int *nowrow, int **matA, int **mat
 		
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0;
+			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < aCols; i++) //Проходим по строке в матрице-А
 			{

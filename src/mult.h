@@ -1,9 +1,9 @@
 #ifndef MULT_H
 #define MULT_H
 
-void multMultiplyIntMatrices(int **, int **, int **, int, int, int, int);
-void multMultiply2IntMatrices(int *, int **, int **, int **, int, int, int, int);
-void multMultiply3IntMatrices(int *, int **, int **, int **, int, int, int, int);
-void multMultiply4IntMatrices(int *, int *, int **, int **, int **, int, int, int, int);
+double multMultiplyIntMatrices(double **, double **, double **, int, int, int, int);
+double multMultiply2IntMatrices(double *, double **, double **, double **, int, int, int, int);
+double multMultiply3IntMatrices(double *, double **, double **, double **, int, int, int, int);
+double multMultiply4IntMatrices(double *, double *, double **, double **, double **, int, int, int, int);
 
 #endif // MULT_H

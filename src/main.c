@@ -34,63 +34,63 @@ int main(int argc, char **argv)
 	}
 
 	// MEMORY ALLICATION
-	int **matA = matIntAllocateMemory(matARows, matACols);
-	int **matB = matIntAllocateMemory(matBRows, matBCols);
-	int **matC = matIntAllocateMemory(matARows, matBCols);
+	double **matA = matDoubleAllocateMemory(matARows, matACols);
+	double **matB = matDoubleAllocateMemory(matBRows, matBCols);
+	double **matC = matDoubleAllocateMemory(matARows, matBCols);
 
 	// FILLING MATRICES
 	int minMatrixValue = 0;
 	int maxMatrixValue = 10;
-	matIntFillRandom(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
-	matIntFillRandom(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
+	matDoubleFillRandom(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
+	matDoubleFillRandom(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
 
 	// DISPLAYING THE SOUCE MATRICES
-	//printf("Matrix A:\n");
-	//matIntDisplay(matA, matARows, matACols);
-	//printf("Matrix B:\n");
-	//matIntDisplay(matB, matBRows, matBCols);
+	printf("Matrix A:\n");
+	matDoubleDisplay(matA, matARows, matACols);
+	printf("Matrix B:\n");
+	matDoubleDisplay(matB, matBRows, matBCols);
 
 	// MATRICES MULTIPLICATION
 	clock_t begin = clock();
 	multMultiplyIntMatrices(matA, matB, matC, matARows, matACols, matBRows, matBCols);
 	clock_t end = clock();
 	printf("Code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
-	//matIntDisplay(matC, matARows, matBRows);
+	//matDoubleDisplay(matC, matARows, matBRows);
 
-    int *nowcolumn = (int *)calloc(matBRows, sizeof(int));
+    double *nowcolumn = (double *)calloc(matBRows, sizeof(double));
     begin = clock();
 	multMultiply2IntMatrices(nowcolumn,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     end = clock();
     free(nowcolumn);
 	printf("Second variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
-    //matIntDisplay(matC, matARows, matBRows);
+    //matDoubleDisplay(matC, matARows, matBRows);
 
-	int *nowrow = (int *)calloc(matACols, sizeof(int));
+	double *nowrow = (double *)calloc(matACols, sizeof(double));
 	begin = clock();
 	multMultiply3IntMatrices(nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     end = clock();
     free(nowrow);
 	printf("Third variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
-	//matIntDisplay(matC, matARows, matBRows);
+	//matDoubleDisplay(matC, matARows, matBRows);
 
-	nowcolumn = (int *)calloc(matBRows, sizeof(int));
-	nowrow = (int *)calloc(matACols, sizeof(int));
+	nowcolumn = (double *)calloc(matBRows, sizeof(double));
+	nowrow = (double *)calloc(matACols, sizeof(double));
 	begin = clock();
 	multMultiply4IntMatrices(nowcolumn,nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     end = clock();
     free(nowrow);
     free(nowcolumn);
 	printf("Fourth variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
-	//matIntDisplay(matC, matARows, matBRows);
+	//matDoubleDisplay(matC, matARows, matBRows);
 
 
 	//printf("Matrix C:\n");
-	//matIntDisplay(matC, matARows, matBCols);
+	//matDoubleDisplay(matC, matARows, matBCols);
 
 	// MEMORY DEALLICATION
-	matIntFreeMemory(matA, matARows);
-	matIntFreeMemory(matB, matBRows);
-	matIntFreeMemory(matC, matARows);
+	matDoubleFreeMemory(matA, matARows);
+	matDoubleFreeMemory(matB, matBRows);
+	matDoubleFreeMemory(matC, matARows);
 
 	return 0;
 }
