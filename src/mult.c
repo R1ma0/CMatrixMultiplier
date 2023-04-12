@@ -19,7 +19,6 @@ double multMultiplyIntMatrices(double **matA, double **matB, double **matC, int 
 
 double multMultiply2IntMatrices(double *nowcolumn, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
-
 	for (int r = 0; r < aRows; r++)
 	{
 		for (int c = 0; c < bCols; c++)

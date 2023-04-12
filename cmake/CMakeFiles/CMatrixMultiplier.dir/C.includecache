@@ -13,7 +13,7 @@ stdlib.h
 -
 time.h
 -
-unistd.h
+string.h
 -
 mult.h
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h

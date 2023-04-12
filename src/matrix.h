@@ -3,6 +3,7 @@
 
 double **matDoubleAllocateMemory(int, int);
 void matDoubleFreeMemory(double **, int);
+double getRandomDouble(int min, int max);
 void matDoubleFillRandom(double **, int, int, int, int);
 void matDoubleDisplay(double **, int, int);
 

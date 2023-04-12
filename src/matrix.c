@@ -24,6 +24,11 @@ void matDoubleFreeMemory(double **matrix, int rows)
 	free(matrix);
 }
 
+double getRandomDouble(int min, int max)
+{
+	return (double)(rand()) / RAND_MAX * (max - min) + min;
+}
+
 void matDoubleFillRandom(double **matrix, int rows, int cols, int min, int max)
 {
 	srand(time(NULL));
@@ -32,7 +37,7 @@ void matDoubleFillRandom(double **matrix, int rows, int cols, int min, int max)
 	{
 		for (int c = 0; c < cols; c++)
 		{
-			matrix[r][c] = min + (max - min) * (rand() % max) / max;
+			matrix[r][c] = getRandomDouble(min, max);
 		}
 	}
 }
