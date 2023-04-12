@@ -10,7 +10,7 @@
 
 #define YES 1
 #define NO 0
-#define M_DISPLAY NO
+#define M_DISPLAY YES
 
 double calcCodeSectionDeltaTime(clock_t begin, clock_t end)
 {
@@ -41,11 +41,11 @@ int main(int argc, char **argv)
 	// MEMORY ALLICATION
 	double **matA = matDoubleAllocateMemory(matARows, matACols);
 	double **matB = matDoubleAllocateMemory(matBRows, matBCols);
-	double **matC = matDoubleAllocateMemory(matARows, matBCols);
+	double **matC = matDoubleAllocateMemory(matACols, matBRows);
 
 	// FILLING MATRICES
 	int minMatrixValue = 0;
-	int maxMatrixValue = 10;
+	int maxMatrixValue = 9;
 	matDoubleFillRandom(matA, matARows, matACols, minMatrixValue, maxMatrixValue);
 	matDoubleFillRandom(matB, matBRows, matBCols, minMatrixValue, maxMatrixValue);
 
@@ -63,7 +63,7 @@ int main(int argc, char **argv)
 	clock_t end = clock();
 	printf("\nCode work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
 #if M_DISPLAY == YES
-	matDoubleDisplay(matC, matARows, matBRows);
+	matDoubleDisplay(matC, matACols, matBRows);
 #endif
 
     double *nowcolumn = (double *)calloc(matBRows, sizeof(double));
@@ -73,7 +73,7 @@ int main(int argc, char **argv)
     free(nowcolumn);
 	printf("\nSecond variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
 #if M_DISPLAY == YES
-    matDoubleDisplay(matC, matARows, matBRows);
+    matDoubleDisplay(matC, matACols, matBRows);
 #endif
 
 	double *nowrow = (double *)calloc(matACols, sizeof(double));
@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     free(nowrow);
 	printf("\nThird variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
 #if M_DISPLAY == YES
-	matDoubleDisplay(matC, matARows, matBRows);
+	matDoubleDisplay(matC, matACols, matBRows);
 #endif
 
 	nowcolumn = (double *)calloc(matBRows, sizeof(double));
@@ -95,13 +95,13 @@ int main(int argc, char **argv)
     free(nowcolumn);
 	printf("\nFourth variant code work time : %f sec\n", calcCodeSectionDeltaTime(begin, end));
 #if M_DISPLAY == YES
-	matDoubleDisplay(matC, matARows, matBRows);
+	matDoubleDisplay(matC, matACols, matBRows);
 #endif
 
 	// MEMORY DEALLICATION
 	matDoubleFreeMemory(matA, matARows);
 	matDoubleFreeMemory(matB, matBRows);
-	matDoubleFreeMemory(matC, matARows);
+	matDoubleFreeMemory(matC, matACols);
 
 	return 0;
 }

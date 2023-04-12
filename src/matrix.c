@@ -48,7 +48,7 @@ void matDoubleDisplay(double **matrix, int rows, int cols)
 	{
 		for (int c = 0; c < cols; c++)
 		{
-			printf("%5.2f", matrix[r][c]);
+			printf("%8.2f", matrix[r][c]);
 		}
 		printf("\n");
 	}
