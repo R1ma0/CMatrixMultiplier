@@ -81,24 +81,23 @@ double multMultiplyARowBCol(double *nowcolumn, double *nowrow, double **matA, do
 	CodeWorkingTime cwt;
 	cwt.begin = clock();
 
-	for (int r = 0; r < aRows; r++)
+	for (int ar = 0; ar < aRows; ar++)
 	{
-	    for (int i = 0; i < aCols; i++) 
+	    for (int ac = 0; ac < aCols; ac++) 
 		{
-			nowrow[i] = matA[r][i];
+			nowrow[ac] = matA[ar][ac];
 		}
-		
-		for (int c = 0; c < bCols; c++)
-		{
-			for (int i = 0; i < aCols; i++) 
-			{
-				nowcolumn[i] = matB[i][c];
 
+		for (int bc = 0; bc < bCols; bc++)
+		{
+			for (int br = 0; br < bRows; br++) 
+			{
+				nowcolumn[br] = matB[br][bc];
 			}
 
 			for (int i = 0; i < aCols; i++)
 			{
-				matC[r][c] += nowrow[i] * nowcolumn[i];
+				matC[ar][bc] += nowrow[i] * nowcolumn[i];
 			}
 		}
 	}
