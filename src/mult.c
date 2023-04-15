@@ -33,36 +33,20 @@ double multMultiplyABCol(double *nowcolumn, double **matA, double **matB, double
 
 	for (int bc = 0; bc < bCols; bc++)
 	{
-		for (int i = 0; i < bRows; i++)
+		for (int br = 0; br < bRows; br++)
 		{
-			nowcolumn[i] = matB[i][bc];
+			nowcolumn[br] = matB[br][bc];
 		}
 
 		for (int ar = 0; ar < aRows; ar++)
 		{
-			for (int j = 0; j < bRows; j++)
+			for (int ac = 0; ac < aCols; ac++)
 			{
-				matC[ar][bc] += matA[ar][j] * nowcolumn[j];
+				matC[ar][bc] += matA[ar][ac] * nowcolumn[ac];
 			}
 		}
 	}
-
-	//for (int ar = 0; ar < aRows; ar++)
-	//{
-	//	for (int bc = 0; bc < bCols; bc++)
-	//	{
-	//		for (int i = 0; i < bRows; i++)
-	//		{
-	//			nowcolumn[i] = matB[i][bc];
-	//		}
-
-//			for (int j = 0; j < bRows; j++)
-//			{
-//				matC[ar][bc] += matA[ar][j] * nowcolumn[j];
-//			}
-//		}
-//	}
-			
+		
 	cwt.end = clock();
 	return calcCodeWorkingTimeDelta(cwt);
 }
@@ -72,19 +56,18 @@ double multMultiplyARowB(double *nowrow, double **matA, double **matB, double **
 	CodeWorkingTime cwt;
 	cwt.begin = clock();
 
-	for (int r = 0; r < aRows; r++)
+	for (int ar = 0; ar < aRows; ar++)
 	{
-	    for (int i = 0; i < aCols; i++) 
+	    for (int ac = 0; ac < aCols; ac++) 
 		{
-			nowrow[i] = matA[r][i];
+			nowrow[ac] = matA[ar][ac];
 		}
 		
-		for (int c = 0; c < bCols; c++)
+		for (int bc = 0; bc < bCols; bc++)
 		{
-			// aCols == bRows
-			for (int i = 0; i < aCols; i++)
+			for (int br = 0; br < bRows; br++)
 			{
-				matC[r][c] += nowrow[i] * matB[i][c];
+				matC[ar][bc] += matB[br][bc] * nowrow[br];
 			}
 		}
 	}
