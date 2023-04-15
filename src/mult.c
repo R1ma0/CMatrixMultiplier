@@ -1,13 +1,19 @@
 #include "mult.h"
-#include <malloc.h>
 
-double multMultiplyIntMatrices(double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
+double calcCodeWorkingTimeDelta(CodeWorkingTime cwt)
 {
+	return (double)(cwt.end - cwt.begin) / CLOCKS_PER_SEC;
+}
+
+double multMultiplyAB(double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
+{
+	CodeWorkingTime cwt;
+	cwt.begin = clock();
+
 	for (int r = 0; r < aRows; r++)
 	{
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < aCols; i++)
 			{
@@ -15,31 +21,41 @@ double multMultiplyIntMatrices(double **matA, double **matB, double **matC, int 
 			}
 		}
 	}
+
+	cwt.end = clock();
+	return calcCodeWorkingTimeDelta(cwt);
 }
 
-double multMultiply2IntMatrices(double *nowcolumn, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiplyABCol(double *nowcolumn, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
+	CodeWorkingTime cwt;
+	cwt.begin = clock();
+
 	for (int r = 0; r < aRows; r++)
 	{
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0.0;
-
 			for (int i = 0; i < bRows; i++) 
 			{
 				nowcolumn[i] = matB[i][c];
 			}
-
+			
 			for (int i = 0; i < aCols; i++)
 			{
 				matC[r][c] += matA[r][i] * nowcolumn[i];
 			}
 		}
 	}
+
+	cwt.end = clock();
+	return calcCodeWorkingTimeDelta(cwt);
 }
 
-double multMultiply3IntMatrices(double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiplyARowB(double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
+	CodeWorkingTime cwt;
+	cwt.begin = clock();
+
 	for (int r = 0; r < aRows; r++)
 	{
 	    for (int i = 0; i < aCols; i++) 
@@ -49,7 +65,6 @@ double multMultiply3IntMatrices(double *nowrow, double **matA, double **matB, do
 		
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0.0;
 			// aCols == bRows
 			for (int i = 0; i < aCols; i++)
 			{
@@ -57,10 +72,16 @@ double multMultiply3IntMatrices(double *nowrow, double **matA, double **matB, do
 			}
 		}
 	}
+
+	cwt.end = clock();
+	return calcCodeWorkingTimeDelta(cwt);
 }
 
-double multMultiply4IntMatrices(double *nowcolumn, double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
+double multMultiplyARowBCol(double *nowcolumn, double *nowrow, double **matA, double **matB, double **matC, int aRows, int aCols, int bRows, int bCols)
 {
+	CodeWorkingTime cwt;
+	cwt.begin = clock();
+
 	for (int r = 0; r < aRows; r++)
 	{
 	    for (int i = 0; i < aCols; i++) 
@@ -70,8 +91,6 @@ double multMultiply4IntMatrices(double *nowcolumn, double *nowrow, double **matA
 		
 		for (int c = 0; c < bCols; c++)
 		{
-			matC[r][c] = 0.0;
-
 			for (int i = 0; i < aCols; i++) 
 			{
 				nowcolumn[i] = matB[i][c];
@@ -84,4 +103,7 @@ double multMultiply4IntMatrices(double *nowcolumn, double *nowrow, double **matA
 			}
 		}
 	}
+
+	cwt.end = clock();
+	return calcCodeWorkingTimeDelta(cwt);
 }

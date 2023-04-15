@@ -9,8 +9,10 @@
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.c
 mult.h
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
-malloc.h
--
 
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
+malloc.h
+-
+time.h
+-
 

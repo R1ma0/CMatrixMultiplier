@@ -11,8 +11,6 @@ stdio.h
 -
 stdlib.h
 -
-time.h
--
 string.h
 -
 unistd.h
@@ -25,4 +23,8 @@ matrix.h
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/matrix.h
 
 /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/src/mult.h
+malloc.h
+-
+time.h
+-
 
