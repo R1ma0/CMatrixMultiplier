@@ -31,22 +31,38 @@ double multMultiplyABCol(double *nowcolumn, double **matA, double **matB, double
 	CodeWorkingTime cwt;
 	cwt.begin = clock();
 
-	for (int r = 0; r < aRows; r++)
+	for (int bc = 0; bc < bCols; bc++)
 	{
-		for (int c = 0; c < bCols; c++)
+		for (int i = 0; i < bRows; i++)
 		{
-			for (int i = 0; i < bRows; i++) 
+			nowcolumn[i] = matB[i][bc];
+		}
+
+		for (int ar = 0; ar < aRows; ar++)
+		{
+			for (int j = 0; j < bRows; j++)
 			{
-				nowcolumn[i] = matB[i][c];
-			}
-			
-			for (int i = 0; i < aCols; i++)
-			{
-				matC[r][c] += matA[r][i] * nowcolumn[i];
+				matC[ar][bc] += matA[ar][j] * nowcolumn[j];
 			}
 		}
 	}
 
+	//for (int ar = 0; ar < aRows; ar++)
+	//{
+	//	for (int bc = 0; bc < bCols; bc++)
+	//	{
+	//		for (int i = 0; i < bRows; i++)
+	//		{
+	//			nowcolumn[i] = matB[i][bc];
+	//		}
+
+//			for (int j = 0; j < bRows; j++)
+//			{
+//				matC[ar][bc] += matA[ar][j] * nowcolumn[j];
+//			}
+//		}
+//	}
+			
 	cwt.end = clock();
 	return calcCodeWorkingTimeDelta(cwt);
 }

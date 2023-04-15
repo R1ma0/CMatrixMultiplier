@@ -91,24 +91,24 @@ int main(int argc, char **argv)
 	matDoubleFillZero(matC, matACols, matBRows);
 
 	double *nowrow = (double *)calloc(matACols, sizeof(double));
-	codeWorkTime = multMultiplyARowB(nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
+	//codeWorkTime = multMultiplyARowB(nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     free(nowrow);
-	printf("Third variant code work time : %f sec\n", codeWorkTime);
+	//printf("Third variant code work time : %f sec\n", codeWorkTime);
 	if (isMatrixDisplayed)
 	{
-		matDoubleDisplay(matC, matACols, matBRows);
+		//matDoubleDisplay(matC, matACols, matBRows);
 	}
 	matDoubleFillZero(matC, matACols, matBRows);
 
 	nowcolumn = (double *)calloc(matBRows, sizeof(double));
 	nowrow = (double *)calloc(matACols, sizeof(double));
-	codeWorkTime = multMultiplyARowBCol(nowcolumn,nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
+	//codeWorkTime = multMultiplyARowBCol(nowcolumn,nowrow,matA, matB, matC, matARows, matACols, matBRows, matBCols);
     free(nowrow);
     free(nowcolumn);
-	printf("Fourth variant code work time : %f sec\n", codeWorkTime);
+	//printf("Fourth variant code work time : %f sec\n", codeWorkTime);
 	if (isMatrixDisplayed)
 	{
-		matDoubleDisplay(matC, matACols, matBRows);
+		//matDoubleDisplay(matC, matACols, matBRows);
 	}
 
 	// MEMORY DEALLICATION
