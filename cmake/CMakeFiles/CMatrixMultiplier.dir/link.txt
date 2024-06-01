@@ -1,1 +1,0 @@
-/usr/bin/cc -rdynamic CMakeFiles/CMatrixMultiplier.dir/main.c.o -o /mnt/Windows/VolSU/Magistratura_1.2/TechnologiesOfProgramming/CMatrixMultiplier/CMatrixMultiplier  libmult.a libmatrix.a 

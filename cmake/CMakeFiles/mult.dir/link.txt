@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmult.a CMakeFiles/mult.dir/mult.c.o
-/usr/bin/ranlib libmult.a
